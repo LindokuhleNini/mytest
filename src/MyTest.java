@@ -50,29 +50,28 @@ public class MyTest {
                     //Number of records must not be more than specified input
                     if (records.size() < input) {
 
-                        //Name & surname should be > than 5
-                        if (newName.length() > 5 && newSurname.length() > 5) {
+                        //Name & surname should be > than 4
+                        if (newName.length() > 4 && newSurname.length() > 4) {
 
-                            //Check if name and surname are unique
-                            if (!nameList.contains(newName) && !surnameList.contains(newSurname)) {
-                                nameList.add(newName);
-                                surnameList.add(newSurname);
+                            nameList.add(newName);
+                            surnameList.add(newSurname);
 
-                                initials = Character.toUpperCase(newName.charAt(0));
+                            initials = Character.toUpperCase(newName.charAt(0));
 
-                                year = dateBetween(1900, 2010);
-                                gc.set(gc.YEAR, year);
-                                dayOfYear = dateBetween(1, gc.getActualMaximum(gc.DAY_OF_YEAR));
-                                gc.set(gc.DAY_OF_YEAR, dayOfYear);
-                                dob = gc.get(gc.DAY_OF_MONTH) + "/" + (gc.get(gc.MONTH) + 1) + "/" +gc.get(gc.YEAR);
-                                age = 2022 - year;
+                            year = dateBetween(1900, 2010);
+                            gc.set(gc.YEAR, year);
+                            dayOfYear = dateBetween(1, gc.getActualMaximum(gc.DAY_OF_YEAR));
+                            gc.set(gc.DAY_OF_YEAR, dayOfYear);
+                            dob = gc.get(gc.DAY_OF_MONTH) + "/" + (gc.get(gc.MONTH) + 1) + "/" +gc.get(gc.YEAR);
+                            age = 2022 - year;
 
-                                records.add(new String[] {String.valueOf(id), newName, newSurname, String.valueOf(initials), String.valueOf(age), dob});
+                            records.add(new String[] {String.valueOf(id), newName, newSurname, String.valueOf(initials), String.valueOf(age), dob});
 
-                                //System.out.println(id + ", " + newName.trim() + ", " + newSurname+", "+initials+", "+age+", "+dob);
-                                writeDataToCsvFile(records);
-                                id++;
-                            }
+                            //System.out.println(id + ", " + newName.trim() + ", " + newSurname+", "+initials+", "+age+", "+dob);
+                            writeDataToCsvFile(records);
+                            System.out.println(id+" done");
+                            id++;
+
 
                         }
                         System.out.println("done");
