@@ -8,9 +8,8 @@
 - MySQL database
 
 # How to deploy solution:
-- Clone project into IntelliJ
+- Clone the entire project into IntelliJ
 - Download the listed jar files
-- Download the my-db (database used to store the data)
 
 # How to run it:
 - To generate random records and store them into CSV file, run MyTest.java
@@ -18,4 +17,4 @@
 - To store the data that is in the CSV file into the database run the saveDataToDB() method in MyTestDB.java 
 
 # Con:
-- It takes hours to store 1000000 records on the csv file
+- Due to all the conditions that are checked before storing the data into the CSV file, it takes a long time to store 1000000 records.
